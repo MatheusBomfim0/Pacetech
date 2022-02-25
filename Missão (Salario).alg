@@ -2,6 +2,7 @@ algoritmo "Aumento De Salario"
 
 var
 Salario, aumento, total: real
+
 inicio
 Escreval ("Informe seu Salario: ")
 Leia(Salario)
