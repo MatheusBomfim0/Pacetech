@@ -81,7 +81,7 @@ public class ProjectController {
         
         String sql = "SELECT * FROM projects";
         
-        List<Project> projects = new ArrayList<>();
+        List<Project> projects = new ArrayList<Project>();
         
         Connection connection = null;
         PreparedStatement statement = null;
