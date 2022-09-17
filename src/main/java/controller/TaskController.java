@@ -36,6 +36,7 @@ public class TaskController {
         try{
             connection = ConnectionFactory.getConnection();
             statement = connection.prepareStatement(sql);
+            
             statement.setInt(1, task.getIdProject());
             statement.setString(2, task.getName());
             statement.setString(3, task.getDescription());
@@ -76,8 +77,8 @@ public class TaskController {
             statement.setInt(1, task.getIdProject());
             statement.setString(2, task.getName());
             statement.setString(3, task.getDescription());
-            statement.setBoolean(4, task.isIsCompleted());
-            statement.setString(5, task.getNotes());
+            statement.setString(4, task.getNotes());
+            statement.setBoolean(5, task.isIsCompleted());
             statement.setDate(6, new Date(task.getDeadline().getTime()));
             statement.setDate(7, new Date(task.getCreatedAt().getTime()));
             statement.setDate(8, new Date(task.getUpdatedAt().getTime()));
@@ -91,7 +92,7 @@ public class TaskController {
         
     }
     
-    public void removeById(int taskId) throws SQLException{
+    public void removeById(int taskId) {
         String sql = "DLETE FROM tasks WHERE id = ?";
         
         Connection connection = null;
