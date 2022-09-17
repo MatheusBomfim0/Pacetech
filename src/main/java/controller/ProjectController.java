@@ -25,7 +25,7 @@ public class ProjectController {
         String sql = "INSERT INTO projects(name,"
                 + "description, "
                 + "createdAt, "
-                + "updatedAt, "
+                + "updatedAt)"
                 + "VALUES (?, ?, ?, ?)";
         
         Connection connection = null;

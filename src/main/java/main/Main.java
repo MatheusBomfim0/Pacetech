@@ -27,7 +27,7 @@ public class Main {
         ProjectController projectController = new ProjectController();
         
         Project project = new Project();
-        project.setName("Projeto teste");
+        project.setName("Projeto teste2");
         project.setDescription("description");
         projectController.save(project);
         

@@ -61,7 +61,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
         jLabelTroolBarTitle.setText("Tarefa");
 
         jLabelTroolBarSave.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTroolBarSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/check.png"))); // NOI18N
+        jLabelTroolBarSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         jLabelTroolBarSave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelTroolBarSaveMouseClicked(evt);
@@ -111,7 +111,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
         jTextAreaNotes.setRows(5);
         jScrollPaneNotes.setViewportView(jTextAreaNotes);
 
-        jFormattedTextFieldDeadLine.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jFormattedTextFieldDeadLine.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
 
         javax.swing.GroupLayout jPanelTaskLayout = new javax.swing.GroupLayout(jPanelTask);
         jPanelTask.setLayout(jPanelTaskLayout);
@@ -181,18 +181,21 @@ public class TaskDialogScreen extends javax.swing.JDialog {
         
         try{
             Task task = new Task();
+            
             task.setIdProject(project.getId());
+            
             task.setName(jTextFieldName.getText());
             task.setDescription(jTextAreaDescription.getText());
             task.setNotes(jTextAreaNotes.getText());
             task.setInCompleted(false);
             
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/y");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date deadLine = null;
-            
             deadLine = dateFormat.parse(jFormattedTextFieldDeadLine.getText());
             task.setDeadline(deadLine);
+            
             controller.save(task);
+            
             JOptionPane.showMessageDialog(rootPane, "Tarefa salva com sucesso");
         }catch(Exception e){
             JOptionPane.showMessageDialog(rootPane, e.getMessage());

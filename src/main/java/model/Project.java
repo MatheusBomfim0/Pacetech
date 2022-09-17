@@ -11,12 +11,11 @@ import java.util.Date;
  * @author theus
  */
 public class Project {
-    
     private int id;
     private String name;
     private String description;
-    private Date createdAt;
-    private Date updatedAt;
+    private Date createdAt = new Date();
+    private Date updatedAt = new Date();
 
     public Project(int id, String name, String description, Date createdAt, Date updatedAt) {
         this.id = id;
@@ -27,7 +26,6 @@ public class Project {
     }
 
     public Project() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -74,8 +72,5 @@ public class Project {
     public String toString() {
         return this.name;
     }
-    
-    
-    
     
 }
